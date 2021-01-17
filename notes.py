@@ -1,17 +1,13 @@
-import os
-import sys
+'''
+This is just a bunch of random crap I've used in the past.  Completely disorganized, possible duplicates.
 
-import logging
-import time
+Abandon all hope, ye who enter here.
+'''
+
 import zmq
-import json
-from datetime import datetime
-import sqlite3
-from pathlib import Path
 
 import glob
 import ntpath
-import subprocess
 import winreg
 from pathlib import Path
 
@@ -21,18 +17,19 @@ import subprocess
 import pyAesCrypt
 import os
 
-if not ".rdp" in content:
-    print("RDP is not in " + content)
-else:
-    print("This is an RDP file")
-    x = content.split(".rdp")
-    print(x[0])
-    xx = parseRDP(x[0])
-try:
-    print(xx + "\n")
-    sqlite_write_rdp(xx[0], xx[1], xx[2])
-except:
-    print("Writing to SQL failed")
+def checkRDP(content):
+    if not ".rdp" in content:
+        print("RDP is not in " + content)
+    else:
+        print("This is an RDP file")
+        x = content.split(".rdp")
+        print(x[0])
+        xx = parseRDP(x[0])
+    try:
+        print(xx + "\n")
+        #sqlite_write_rdp(xx[0], xx[1], xx[2])
+    except:
+        print("Writing to SQL failed")
 
 
 # Super simple function to run something with Powershell
@@ -155,7 +152,6 @@ Path(dbfolder).mkdir(parents=True, exist_ok=True)
 context = zmq.Context()
 socket = context.socket(zmq.REP)
 socket.bind("tcp://*:50165")
-import re
 
 
 # Encoding stuff
@@ -256,30 +252,10 @@ def set_reg(name, value):
         return False
 
 
-# Get a list of the RDP Files in the Connections folder
-def getFiles():
-    filelist = glob.glob("connections/" + '*.rdp')
-    namesonly = []
-    for file in filelist:
-        name = (ntpath.basename(file)).split(".", 1)
-        namesonly.append(name[0])
-    return namesonly
-
-
-currentlist = getFiles()
-
-
 # Manually connect to a server via IP and port
-def connectRDP_Manual(IP, port):
+def connectRDP_Manual(IP, port, exe):
     connection = exe + " /v:" + str(IP) + ":" + str(port)
     powershellRun(connection)
-
-
-# Run a Powershell command / open a file with Powershell
-def powershellRun(filename):
-    process = subprocess.Popen('powershell.exe', stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-    out, err = process.communicate(filename.encode('utf-8'))
-    return out
 
 
 # Write an RDP file
@@ -390,15 +366,6 @@ def getFiles():
     return namesonly
 
 
-# Write an RDP file
-def createRDP(filename, contents):
-    # Open the filename the user provided
-    with open(filename, "w") as f:
-        # Write the user provided content to it
-        f.write(contents)
-        f.close()
-
-
 # Print buckets to make sure we're connected
 for bucket in s3.buckets.all():
     print(bucket.name)
@@ -419,66 +386,11 @@ One per line
 No quotes required
 '''
 
-process = subprocess.Popen('powershell.exe', stdin=subprocess.PIPE, stdout=subprocess.PIPE)
-out, err = process.communicate(commands.encode('utf-8')
-print
-out
 
-import random
-
-sub = porno[random.randint(0, 472)]
-
-# This makes the config folder if it doesn't exist_ok
-# Config folder is where the database goes
-Path(dbfolder).mkdir(parents=True, exist_ok=True)
-
-# Initialize the database
-rss_dict = {}
-
-days = [x for x in range(1, 11)]
-
-Sets
-days
-to[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-Don
-'t fucking know why.
-Don
-'t fucking know why.
-
-
-def beepbeepmotherfucker():
-    import winsound
-    frequency = 1000
-    duration = 100
-    for i in range(0, 5):
-        winsound.Beep(frequency, duration)
-
-        if (len(a) > 1):
-            a = a.split("\n")
-
-            # https://api.telegram.org/bot1387703254:AAGmqzewKexbjYUgTxhpu-w-9EZvOsZweTQ/sendMessage?chat_id=-1001277342977&text=cocksuckers
-            # Set this to 0 for dev, and 1 for prod
-
-            if (row[2].count(linkcheck)):
-
-
-#####
-# Function monitoring RSS feeds
-#####
-def rss_monitor(context):
-    for name, url_list in rss_dict.items():
-        print("Checking for new stuff from ", name, "!")
-        requests.get(healthchecker[runningStatus], timeout=10)
-        rss_d = feedparser.parse(url_list[0])
-
-
-def cmd_o365(update, context):
+def cmd_o365(title,tempstat,msstatus,impact, servicestatus):
     title[0] = msstatus.find("Title: ", 0, len(msstatus))
-
     title[1] = msstatus.find("</p>", title[0], impact[0])
-
     title[2] = msstatus[(title[0] + 7):title[1]]
-
     tempstat[0] = msstatus.find("ng-binding\">Outlook.com", 0, len(msstatus))
     tempstat[1] = msstatus.find("\" class", tempstat[0], len(msstatus))
     tempstat[2] = msstatus[tempstat[0]:tempstat[1]]

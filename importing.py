@@ -39,6 +39,10 @@ path = "C:/users/steve/desktop/test_folder/"    # Set a test folder path
 os.path.isdir(path)                             # This will return True if the above directory exists, False if not
 os.rmdir(path)                                  # Deletes the folder
 
+os.chdir(path)                                  # Change directories
+
+file="setup.exe"
+os.startfile(file)                           # Start a file
 '''
 subprocess
 
