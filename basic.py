@@ -16,13 +16,26 @@ It can span multiple lines
 '''
 Subject - Syntax Basics
 '''
-# Programming does numbers a little differently.  Humans start counting at 1, machines start counting at 0.
-# So, if you have a list with multiple values, you can show individual values by calling listname[#], where #
-# is the number of the entry you want to get.  0 is the first entry.  So, if you had a list with four items, say 10 20 30 and 40.
-# listname[0] would be 10, listname[1] would be 20.
-# There'll be more on lists later!
 
-# Tabs / Indents
+## The Escape Character (\)
+# When working with Windows file paths, it is important to note that the slashes must be reversed.
+# So, instead of
+"C:\SomeDir\newFolder"
+# You would write
+"C:/SomeDir/newFolder"
+
+# The reason for this is that "\" is the "escape" key for Python.  So it can turn various characters into different things.
+# \n        Line break
+# \t        Tab
+
+# You can sometimes use the regular slash, but if it's adjacent to a character that does something when next to a slash, it'll fail to execute.
+
+# You can also use the slash to escape the slash, if you really want to keep regular Windows slash direction.
+"C:\\SomeDir\\newFolder\\"
+
+
+
+## Tabs / Indents
 
 # Python is SUPER SUPER SUPER ANAL about tabs.
 # code must be start with no indents.
@@ -74,6 +87,12 @@ var_bool_false = False
 var_empty_list = []
 var_number_list = [0,1,2,3,4,5]
 var_str_list = ["FirstVal","SecondVal","ThirdVal"]
+
+# Programming does numbers a little differently.  Humans start counting at 1, machines start counting at 0.
+# So, if you have a list with multiple values, you can show individual values by calling listname[#], where #
+# is the number of the entry you want to get.  0 is the first entry.  So, if you had a list with four items, say 10 20 30 and 40.
+# listname[0] would be 10, listname[1] would be 20.
+# There'll be more on lists later!
 
 # Remember, numbering starts at zero.   So if you want to get the first value of a list, you'd do:
 var_str_list[0]
@@ -145,16 +164,16 @@ Subject - Basic Native Functions
 # First, let's make a variable to manipulate.
 var = "Some text"
 
-# len()
-## Gets the length of a variable.  If the variable is a list, it will return how many entries there are.
+## len()
+# Gets the length of a variable.  If the variable is a list, it will return how many entries there are.
 length = len(var)   # This will give length a value of 9
 
-# .replace()
-## Can replace any subscrings inside a string with another string
+## .replace()
+# Can replace any subscrings inside a string with another string
 newVar = var.replace("Some ","Stop reading this ")   # This will make newVar equal to "Stop reading this text"
 
-# print() displays information on the console
-## You can use one single value, or multiple values.
+## print() displays information on the console
+# You can use one single value, or multiple values.
 print("Hello!")     # This prints the string provided
 print(var)          # This prints whatever var is equal to
 print("Hello!" + var)   # This prints the string "Hello!", along with the value of var.  Using + does not include a space
@@ -164,30 +183,46 @@ print("Hello!",var)     # This prints the string "Hello!", along with the value 
 print("This is a string" + 10)          #   This will fail
 print("This is a string" + str(10))     #   This will succeed, because 10 is converted to "10", a string.
 
-# input()
+## input()
 # Asks the user for input
 
 x = input("What is your favorite number?")
 print(x)
 
-# .append()
+## .append()
 # Adds data to a list
 myList = []
 data = "One"
 myList.append(data)
 # myList will now have one entry, "One"
 
-# .lower()
+## .lower()
 # Turns all letters to lowercase
 data = "One"
 data = data.lower()
 # data will equal "one"
 
-# .upper()
+## .upper()
 # Just what you'd expect
 data = "One"
 data = data.upper()
 # data will equal "ONE"
+
+## .split()
+# Splits a string into a list of strings, separated by whatever is in the parenthesis.
+data = "One,Two,Three,Four,Five,Six"
+data = data.split(",")
+# data will now consist of a list with each of the numbers occupying an entry, and no commas to be found.
+# This can be used to truncate data too.  For example:
+data = "Our boss is nice, but holy crap he is an idiot sometimes."
+data = data.split(", but holy crap he is an idiot sometimes.")
+# This will give you a list with two entries; "Our boss is nice", and an empty entry.
+# You can either select the first entry with:
+print(data[0])
+# Or, you can remove the last entry using pop
+data.pop()
+print(data)
+
 
 '''
 Subject - If Statements
@@ -289,6 +324,23 @@ users = ["Jeffery","Donny","Walter"]
 # users[i] will end up being users[0], users[1], and users[2], stopping after 2, as len(users) will return 3.
 for i in range(0,len(users)):
     print(users[i])
+
+# One Liner For Loops
+
+# Example
+#   days                    The output variable
+#   x (first)               The data that would typically be under the loop, so, what we want the loop to do
+#   for x in range(1,11)    Cycle through from x being 1, until 1 is not less than 11
+# Essentially this just prints x at every iteration, so, 1 2 3 4 5 6 7 8 9 10
+# Because we're running this for loop and assigning it to a variable, this makes the first "x" essentially the
+# driving force behind inputting the data to the variable
+
+# Someone else explain this if I'm wrong, one-liner for loops are cool but confuse me.
+days = [x for x in range(1, 11)]
+[print("Okay, we're on "+str(x)) for x in range(1, 11)]
+
+users = ["Jeffery","Donny","Walter"]
+[print(user) for user in users]
 
 # While Loops
 
