@@ -18,5 +18,7 @@ I'll update this in the future, it's shorthanded and lazy right now.  Really sho
 
 [Common Libraries](importing.py) - Rundown with examples for several common libraries.  Time.sleep, os, subprocess, random, winsound, datetime, requests, praw
 
+[Adding a GUI](pysimplegui.py) - Rundown with examples for for a super basic GUI using superb library PySimpleGUI.  A <i>plethora</i> of examples can also be found on the [PySimpleGUI Git Repo](https://github.com/PySimpleGUI/PySimpleGUI/tree/master/DemoPrograms)
+
 ## Notes
 This is by no means a perfect or comprehensive set of scripts.  More than happy to hear any suggests, or take requests on things to explain.
