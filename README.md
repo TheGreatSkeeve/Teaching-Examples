@@ -13,5 +13,10 @@ Download and install, and then open it up.
 
 I'll update this in the future, it's shorthanded and lazy right now.  Really should add a command to pull the example page from git, but git still confuses me.
 
+## Examples
+[Basic Python Stuff](basic.py) - A super basic overview of Python variables, if statements, for loops, while loops, typecasting, and a brief intro into Functions.  There will be a program which utilizes all these aspects, as soon as I write one.
+
+[Common Libraries](importing.py) - Rundown with examples for several common libraries.  Time.sleep, os, subprocess, random, winsound, datetime, requests, praw
+
 ## Notes
 This is by no means a perfect or comprehensive set of scripts.  More than happy to hear any suggests, or take requests on things to explain.
