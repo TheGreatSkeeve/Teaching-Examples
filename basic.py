@@ -171,10 +171,24 @@ x = input("What is your favorite number?")
 print(x)
 
 # .append()
+# Adds data to a list
+myList = []
+data = "One"
+myList.append(data)
+# myList will now have one entry, "One"
 
 # .lower()
+# Turns all letters to lowercase
+data = "One"
+data = data.lower()
+# data will equal "one"
 
 # .upper()
+# Just what you'd expect
+data = "One"
+data = data.upper()
+# data will equal "ONE"
+
 '''
 Subject - If Statements
 '''
